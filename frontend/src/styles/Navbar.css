@@ -1,0 +1,262 @@
+/* Import the same font as landing page */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Navbar container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 26, 46, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+  padding: 1rem 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00e5ff, transparent);
+  opacity: 0.6;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.3), transparent);
+}
+
+/* Logo styling */
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+  color: #00e5ff;
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+}
+
+/* Navigation links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar-links li {
+  position: relative;
+  color: #b3e5fc;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.navbar-links li::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00e5ff, #0097a7);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+
+.navbar-links li:hover::before {
+  width: 100%;
+}
+
+.navbar-links li:hover {
+  color: #ffffff;
+  background: rgba(0, 229, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+}
+
+/* Special styling for logout button */
+/* .navbar-links li:last-child {
+  background: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.3);
+  color: #ffcdd2;
+  margin-left: 1rem;
+} */
+
+.navbar-links li:last-child:hover {
+  background: rgba(255, 82, 82, 0.2);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 82, 82, 0.3);
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: linear-gradient(90deg, #00e5ff, #0097a7);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+}
+
+/* Hamburger animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Show class for mobile menu */
+.navbar-links.show {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 26, 46, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-top: 1px solid rgba(0, 229, 255, 0.1);
+  }
+
+  .navbar-links li {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 2rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.05);
+  }
+
+  .navbar-links li:last-child {
+    margin: 1rem 2rem;
+    width: calc(100% - 4rem);
+    border-radius: 8px;
+    border-bottom: none;
+  }
+
+  .navbar-links li::before {
+    display: none;
+  }
+}
+
+/* Smooth scrolling offset for fixed navbar */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Performance optimizations */
+.navbar,
+.navbar-logo,
+.navbar-links li,
+.hamburger {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar-logo,
+  .navbar-links li,
+  .hamburger span {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states */
+.navbar-logo:focus,
+.navbar-links li:focus,
+.hamburger:focus {
+  outline: 2px solid #00e5ff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .navbar {
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 2px solid #00e5ff;
+  }
+  
+  .navbar-links li {
+    color: #ffffff;
+  }
+}

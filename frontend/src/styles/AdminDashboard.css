@@ -1,0 +1,131 @@
+.admin-dashboard {
+  padding: 7rem 2rem 4rem;
+  background: linear-gradient(135deg, #1e2a38, #2e3e50);
+  color: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-header h2 {
+  font-size: 2rem;
+  color: #00d4ff;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  color: #b0bec5;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: x-large;
+  font-weight:bold;
+}
+
+.stat-box h3 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.stat-box h4 {
+  color: #00d4ff;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.stat-box ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.stat-box li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* === Charts Section === */
+.charts-section {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.charts-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #00e5ff;
+}
+
+.chart-box {
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.chart-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.chart-box h4 {
+  margin-bottom: 1rem;
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .chart-box {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .charts-title {
+    font-size: 1.3rem;
+  }
+
+  .chart-box h4 {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.6rem;
+  }
+}
